@@ -120,11 +120,37 @@ limitations under the License.
   // - the user clicks on an app notification created by a service worker
   //   `messaging.setBackgroundMessageHandler` handler.
   messaging.onMessage((payload) => {
+	
+	if ('serviceWorker' in navigator) {
+	  navigator.serviceWorker
+                    .register('./firebase-messaging-sw.js', { scope: './' })
+	  .then(function(registration) {
+		console.log('A service worker is active:', registration.active);
+
+		// At this point, you can call methods that require an active
+		// service worker, like registration.pushManager.subscribe()
+		 setTimeout(() => {
+                            registration.showNotification(payload.notification.title, {
+                                body: payload.notification.body,
+								icon: payload.notification.icon,
+                                data: payload.notification.click_action
+                            });
+                            registration.update();
+                        }, 100);
+	  });
+	         
+	} else {
+	  console.log('Service workers are not supported.');
+	  alert("hello");
+	}
+	
+		
     console.log('Message received. ', payload);
     // [START_EXCLUDE]
     // Update the UI to include the received message.
     appendMessage(payload);
     // [END_EXCLUDE]
+	
   });
   // [END receive_message]
 
