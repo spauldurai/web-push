@@ -81,24 +81,22 @@ limitations under the License.
 <script src="/__/firebase/init.js"></script>
 -->
 
-<script defer src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/7.8.1/firebase-messaging.js"></script>
-<script defer src="./init-firebase.js"></script>
+<!--<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-messaging.js"></script>
+<!--<script src="./init-firebase.js"></script> -->
 
 <script>
- //importScripts('https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js');
- //importScripts('https://www.gstatic.com/firebasejs/7.8.1/firebase-messaging.js');
 
- // Initialize the Firebase app in the service worker by passing in the
- // messagingSenderId.
- //firebase.initializeApp({
- //  'messagingSenderId': '57744342793'
- //});
-  // [START get_messaging_object]
-  // Retrieve Firebase Messaging object.
-  const messaging = firebase.messaging();
+ firebase.initializeApp({
+  "apiKey": "AIzaSyDmxRg78WKTsNzoPRtX6-Gp5ZdMXl6_m30",
+  "messagingSenderId": "57744342793",
+  "projectId": "senthilkumar-cloud",
+  "appId": "1:57744342793:web:767edd49d85be5ad6e5dd8"
+});
+ 
+   const messaging = firebase.messaging();
   // [END get_messaging_object]
   // [START set_public_vapid_key]
   // Add the public key generated from the console here.
@@ -307,6 +305,7 @@ limitations under the License.
   }
 
   resetUI();
+
 </script>
 </body>
 </html>
