@@ -75,11 +75,27 @@ limitations under the License.
 <!-- Import and configure the Firebase SDK -->
 <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
 <!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+<!--
 <script src="/__/firebase/7.8.1/firebase-app.js"></script>
 <script src="/__/firebase/7.8.1/firebase-messaging.js"></script>
 <script src="/__/firebase/init.js"></script>
+-->
+
+<script defer src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/7.8.1/firebase-messaging.js"></script>
+<script defer src="./init-firebase.js"></script>
 
 <script>
+ //importScripts('https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js');
+ //importScripts('https://www.gstatic.com/firebasejs/7.8.1/firebase-messaging.js');
+
+ // Initialize the Firebase app in the service worker by passing in the
+ // messagingSenderId.
+ //firebase.initializeApp({
+ //  'messagingSenderId': '57744342793'
+ //});
   // [START get_messaging_object]
   // Retrieve Firebase Messaging object.
   const messaging = firebase.messaging();
